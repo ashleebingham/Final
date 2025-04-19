@@ -1,0 +1,44 @@
+# === GENERAL SYSTEM FILES ===
+.DS_Store
+Thumbs.db
+
+# === FRONTEND (npm/Vite/React/etc.) ===
+**/node_modules/
+**/dist/
+**/.vite/
+**/.next/
+**/.cache/
+**/build/
+**/.eslintcache
+
+# === BACKEND (.NET) ===
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
+**/TestResults/
+**/FinalBackend/Properties/launchSettings.json  # often machine-specific
+
+# === ENVIRONMENT VARIABLES ===
+**/.env
+.env.local
+.env.development.local
+.env.production.local
+
+# === LOG FILES ===
+**/*.log
+npm-debug.log*
+
+# === IDE SPECIFIC FILES ===
+.vscode/
+.idea/
+
+# === OS TEMP FILES ===
+**/~$*
+**/*.tmp
+
+# === LOCK FILES (keep only if you're sharing one) ===
+package-lock.json

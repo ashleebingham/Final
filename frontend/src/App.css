@@ -1,0 +1,626 @@
+:root {
+  /* Theme Colors */
+  --primary-color: #4ea4f1; /* slightly softer blue */
+  --primary-dark: #2b7bbd; /* better contrast, still deep */
+  --primary-light: #a3d4fa; /* brighter and more readable */
+  --primary-muted: #e0f0fb; /* calm blue-gray for backgrounds */
+
+  /* Dark Mode Base */
+  --background-color: #1e1e1e; /* slightly deeper for elegance */
+  --surface-color: #2c2c2c; /* consistent with background */
+  --text-color: #f0f0f0; /* brighter for readability */
+  --border-color: #444; /* sharper contrast from background */
+
+  /* Font */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Global Styles ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+/* Wrap content in a main container if needed */
+.main-container {
+  flex: 1;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 64px 2rem 1rem; /* Top padding matches header height */
+}
+
+/* ===== Header / Footer ===== */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* ensure it stays above other elements */
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 0;
+}
+
+/* ===== Forms (Updated layout) ===== */
+form {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.card {
+  background-color: var(--surface-color);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  margin: 1rem auto;
+  max-width: 100%;
+  overflow-x: auto; /* This is key */
+}
+
+
+/* ===== Buttons ===== */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+button:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-light);
+  outline: none;
+}
+
+/* ===== Images ===== */
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* ===== Utility Classes ===== */
+.accent-text {
+  color: var(--primary-light);
+}
+
+.bg-muted {
+  background-color: var(--primary-muted);
+  color: #222;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Links ===== */
+p {
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+/* ===== Responsive Helpers ===== */
+@media (max-width: 600px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  form {
+    padding: 1rem;
+  }
+}
+
+/* Home page styling */
+.home {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-subtitle {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
+}
+
+.home-description {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.home-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.home-left {
+  margin: 10px;
+  flex-grow: 1; /* Allow both to grow and fill available space */
+  min-width: 0; /* Remove min-width to allow flexibility */
+  max-width: 50%; /* Optionally set a max-width if needed */
+}
+.home-right {
+  margin: 10px;
+  flex-grow: 1; /* Allow both to grow and fill available space */
+  min-width: 0; /* Remove min-width to allow flexibility */
+  max-width: 50%; /* Optionally set a max-width if needed */
+  /* display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 1rem; */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .movie-image-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Make images smaller for smaller screens */
+  }
+}
+
+.movie-image-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(100px, 1fr)
+  ); /* Adjust for smaller images */
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Image placeholder with fixed aspect ratio (500x700px) */
+.image-placeholder {
+  background-color: #444;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-style: italic;
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 7; /* Maintain 500px / 700px aspect ratio */
+  max-width: 100%;
+}
+
+/* Ensure images maintain their aspect ratio */
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the images cover the area without distortion */
+  border-radius: 8px;
+}
+
+/* Bootstrap grid layout example */
+.container-fluid {
+  padding: 0 1rem;
+}
+
+.row {
+  margin-bottom: 2rem;
+}
+
+.col-sm-12,
+.col-md-6,
+.col-lg-4 {
+  padding: 0.5rem;
+}
+
+/* Example of a responsive form layout */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem;
+  }
+}
+
+/* ===== Card (home-actions) ===== */
+.card.home-actions {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px; /* Set a max-width for better control */
+  margin: 2rem auto;
+  text-align: center; /* Align content to center */
+}
+
+/* Enhance button styling */
+.card.home-actions button {
+  width: 100%; /* Full-width button */
+  padding: 1rem;
+  margin: 0.5rem 0; /* Add margin between buttons */
+  font-size: 1.2rem; /* Make the text a bit larger */
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.card.home-actions button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px); /* Add a slight hover effect */
+}
+
+/* Focus state for buttons */
+.card.home-actions button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.featured-movie-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1.5rem;
+}
+
+.featured-movie-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-title-text {
+  margin-top: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-btn:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .featured-movie-wrapper {
+    gap: 1rem;
+  }
+
+  .arrow-btn {
+    font-size: 1.5rem;
+  }
+}
+
+.nav-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: var(--primary-light);
+  color: #111;
+  transform: translateY(-1px);
+}
+
+.branding {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.branding:hover {
+  color: white !important;
+  text-decoration: none !important;
+  transform: none !important;
+}
+
+.navbar-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem; /* text-xs */
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.navbar-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Cinaniche header spacing */
+nav a {
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Header container spacing */
+header {
+  padding: 0;
+  background-color: var(--primary-color);
+}
+
+/* Inner nav container */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 64px;
+}
+
+/* Logo spacing */
+.header-logo {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin-right: 3rem;
+  color: white;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 2.5rem; /* space between nav items */
+  align-items: center;
+}
+
+/* Individual nav links */
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d1d5db;
+}
+
+/* Right-side search bar */
+.header-search {
+  margin-left: auto;
+}
+
+.logo-image {
+  height: 120px;
+  margin-right: 2 rem;
+  object-fit: contain;
+  display: block;
+}
+
+/* App.css */
+.sc-Qotzb.hrEKBL {
+  overflow: visible !important;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* === Enhance table visuals on Entertainers page === */
+.table th {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.table td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  color: var(--text-color);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--surface-color);
+}
+
+/* .table-striped tbody tr:hover {
+  background-color: var(--primary-muted);
+  transition: background-color 0.2s ease-in-out;
+} */
+
+.table .nav-btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
+/* Clean up table layout for entertainers list */
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.card th, .card td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.card thead {
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+}
+
+/* .card tbody tr:hover {
+  background-color: var(--primary-muted);
+} */
+
+.card .nav-btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+/* === Scoped form styling for EntertainerForm === */
+.entertainer-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem 2rem; /* remove top padding */
+  margin-top: 0; /* override default margin */
+}
+
+
+.entertainer-form {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 0; /* make sure there's no extra top margin */
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-row label {
+  flex: 0 0 140px; /* fixed width label */
+  text-align: right;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 0.6rem;
+}
