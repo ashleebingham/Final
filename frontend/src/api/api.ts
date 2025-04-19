@@ -1,7 +1,9 @@
 import { Entertainer } from '../types/Entertainer';
 
 // Base URL for API requests
-export const API_URL = 'https://localhost:5000/api';
+// export const API_URL = 'https://localhost:5000/api';
+export const API_URL =
+  'https://final-bingham-backend-eqe8cffhfkdzfmhy.eastus-01.azurewebsites.net/api';
 
 /**
  * Fetches the list of all entertainers from the backend.

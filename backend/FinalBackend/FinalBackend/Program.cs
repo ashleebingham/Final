@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
 options.AddPolicy("AllowOrigin",
     policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "https://thankful-rock-086d96a1e.6.azurestaticapps.net")
+        policy.WithOrigins("http://localhost:5173", "https://purple-water-0485ff51e.6.azurestaticapps.net")
                 .AllowCredentials()
                 .AllowAnyHeader()
                 .AllowAnyMethod();

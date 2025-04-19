@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../components/PageWrapper';
 import { Entertainer } from '../types/Entertainer';
-import { API_URL, fetchEntertainers } from '../api/api';
+import { fetchEntertainers } from '../api/api';
 
 /**
  * Page that displays a list of all entertainers in a table.
@@ -10,7 +10,6 @@ import { API_URL, fetchEntertainers } from '../api/api';
  */
 const EntertainersPage = () => {
   const [entertainers, setEntertainers] = useState<Entertainer[]>([]);
-  const [loading, setLoading] = useState(true);
 
   // Fetch entertainers from the backend when the component mounts
   useEffect(() => {
@@ -20,8 +19,6 @@ const EntertainersPage = () => {
         setEntertainers(data);
       } catch (error) {
         console.error('Error loading entertainers:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -29,22 +26,6 @@ const EntertainersPage = () => {
   }, []);
 
   // Handle deletion of an entertainer and update the UI without a full reload
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this entertainer?')) return;
-
-    try {
-      const res = await fetch(`${API_URL}/entertainment/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (!res.ok) throw new Error('Failed to delete');
-
-      // Update local state by removing the deleted entertainer
-      setEntertainers((prev) => prev.filter((e) => e.entertainerId !== id));
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
     <PageWrapper>
